@@ -36,12 +36,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4805952747863036}
   - component: {fileID: 212994184198968182}
-  - component: {fileID: 61790076852071266}
-  - component: {fileID: 61496753220793704}
   - component: {fileID: 50385284886630338}
   - component: {fileID: 114929499603738308}
   - component: {fileID: 114663195343704988}
   - component: {fileID: 114241971261814468}
+  - component: {fileID: 70304888621216444}
+  - component: {fileID: 70735487433981518}
   m_Layer: 0
   m_Name: LibraryChair
   m_TagString: Untagged
@@ -184,8 +184,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61496753220793704
-BoxCollider2D:
+--- !u!70 &70304888621216444
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -196,21 +196,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000023841858, y: 0.71800315}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.042673152}
-    oldSize: {x: 0.89, y: 1.57}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
+  m_Offset: {x: 0.00000023841858, y: 0.71800315}
   m_Size: {x: 0.89, y: 1.5699999}
-  m_EdgeRadius: 0
---- !u!61 &61790076852071266
-BoxCollider2D:
+  m_Direction: 0
+--- !u!70 &70735487433981518
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -221,19 +211,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004962047, y: 0.095254585}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.042673152}
-    oldSize: {x: 0.89, y: 1.57}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6021961, y: 0.2947299}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.0000007897576, y: 0.124966465}
+  m_Size: {x: 0.6217241, y: 0.32187882}
+  m_Direction: 1
 --- !u!114 &114185543744021108
 MonoBehaviour:
   m_ObjectHideFlags: 1
