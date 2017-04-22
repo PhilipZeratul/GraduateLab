@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	public float speed = 0.12f;
     public const float inputHoldDelay = 0.5f;
+    public bool interactionFinished = false;
 
 	private bool isMouseClickedWalking = false;
     private bool handleInput = true;
@@ -16,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private WaitForSeconds inputHoldWait;
 
     private readonly int hashSpeedPara = Animator.StringToHash("Speed");   
-    private readonly int hashLocomotionTag = Animator.StringToHash("Locomotion");
 
 
     private void Awake()
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         inputHoldWait = new WaitForSeconds(inputHoldDelay);
 	}
 
-	private void LateUpdate()
+	private void Update()
 	{
 		float h = Input.GetAxisRaw("Horizontal");
 		float v = Input.GetAxisRaw("Vertical");
@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
 	private void KeyBoardMove(float h, float v)
 	{
+        if (!handleInput)
+            return;
+
         isMouseClickedWalking = false;
         currentInteractable = null;
 
@@ -58,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 
     private void MouseMove()
-    {        
+    {      
         if (Vector2.Distance(transform.position, destinationPosition) < 0.1f)
         {
             isMouseClickedWalking = false;            
@@ -96,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!handleInput)
             return;
+
         currentInteractable = null;
 
         PointerEventData pData = (PointerEventData)data;
@@ -108,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!handleInput)
             return;
+
         currentInteractable = interactable;
 
         destinationPosition = interactable.interactionLocation.position;
@@ -124,11 +129,12 @@ public class PlayerMovement : MonoBehaviour
         yield return inputHoldWait;
 
         // Until the animator is in a state with the Locomotion tag, wait.
-        while (walkAnimator.GetCurrentAnimatorStateInfo(0).tagHash != hashLocomotionTag)
+        while (!interactionFinished)
         {
             yield return null;
         }
 
+        Debug.Log("interactionFinished");
         // Now input can be accepted again.
         handleInput = true;
     }
