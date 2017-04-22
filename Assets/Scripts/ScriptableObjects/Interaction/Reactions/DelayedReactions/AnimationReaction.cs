@@ -17,6 +17,7 @@ public class AnimationReaction : DelayedReaction
 
     protected override void ImmediateReaction ()
     {
+        Debug.Log("SitOnChair");
         animator.SetTrigger (triggerHash);
     }
 }
