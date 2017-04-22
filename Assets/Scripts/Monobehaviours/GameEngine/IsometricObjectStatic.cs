@@ -2,7 +2,6 @@
 
 
 [ExecuteInEditMode]
-[RequireComponent(typeof(Renderer))]
 public class IsometricObjectStatic : MonoBehaviour
 {
 	private const int IsometricRangePerYUnit = 1;
@@ -25,10 +24,6 @@ public class IsometricObjectStatic : MonoBehaviour
             float zOrder = Target.position.y * IsometricRangePerYUnit - TargetOffset;
             Vector3 prevPosition = transform.position;
             transform.position = new Vector3(prevPosition.x, prevPosition.y, zOrder);
-
-            // Deprecated method for changing sorting layer.
-            //Renderer renderer = GetComponent<Renderer>();
-            //renderer.sortingOrder = -(int)(Target.position.y * IsometricRangePerYUnit) + TargetOffset;
         }
     }
 	#endif

@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MouseMove()
     {        
-       /* if (Vector2.Distance(transform.position, destinationPosition) < 0.2f)
+        if (Vector2.Distance(transform.position, destinationPosition) < 0.1f)
         {
             isMouseClickedWalking = false;            
             return;
@@ -70,15 +70,15 @@ public class PlayerMovement : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
 
         transform.position = Vector3.MoveTowards(transform.position, destinationPosition, speed);
-        walkAnimator.SetFloat(hashSpeedPara, 2.0f);*/
+        walkAnimator.SetFloat(hashSpeedPara, 2.0f);
     }
 
 	private void Stop()
 	{
         isMouseClickedWalking = false;
 		walkAnimator.SetFloat(hashSpeedPara, 0.0f);
-
-       /* if (currentInteractable)
+        
+        if (currentInteractable)
         {
             // ... set the player's rotation to match the interactionLocation's.
             transform.rotation = currentInteractable.interactionLocation.rotation;
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Start the WaitForInteraction coroutine so that input is ignored briefly.
             StartCoroutine(WaitForInteraction());
-        }*/
+        }
     }
 
     public void OnGroundClick(BaseEventData data)

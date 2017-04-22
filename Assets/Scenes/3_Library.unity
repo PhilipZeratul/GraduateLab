@@ -428,6 +428,20 @@ SpriteRenderer:
   m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!114 &133332196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96b13ef118a8b84c8a4fac572ecb941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  animator: {fileID: 801000471}
+  trigger: SitOnChair
 --- !u!1 &183181557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,6 +2189,11 @@ CapsuleCollider2D:
   m_Offset: {x: -0.08604501, y: 0.21799636}
   m_Size: {x: 1.4974481, y: 0.562997}
   m_Direction: 1
+--- !u!95 &801000471 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95366707776749058, guid: 109613f817e5b5a48abd84268e39c6b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 611434677}
 --- !u!114 &801000474 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114265294508927732, guid: 109613f817e5b5a48abd84268e39c6b2,
@@ -2605,6 +2624,20 @@ MonoBehaviour:
   text: {fileID: 1740911417}
   displayTimePerCharacter: 0.1
   additionalDisplayTime: 0.5
+--- !u!114 &1144696717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96b13ef118a8b84c8a4fac572ecb941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  animator: {fileID: 801000471}
+  trigger: SitOnChair
 --- !u!1 &1153983213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,6 +2714,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1251742269}
     m_Modifications:
+    - target: {fileID: 114185543744021108, guid: 594e7f14250fc4340aeef077acd16d96,
+        type: 2}
+      propertyPath: reactions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4805952747863036, guid: 594e7f14250fc4340aeef077acd16d96, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.24
@@ -2727,6 +2765,11 @@ Prefab:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 801000474}
+    - target: {fileID: 114185543744021108, guid: 594e7f14250fc4340aeef077acd16d96,
+        type: 2}
+      propertyPath: reactions.Array.data[1]
+      value: 
+      objectReference: {fileID: 133332196}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 594e7f14250fc4340aeef077acd16d96, type: 2}
   m_IsPrefabParent: 0
@@ -4488,7 +4531,7 @@ Prefab:
     - target: {fileID: 114185543744021108, guid: 594e7f14250fc4340aeef077acd16d96,
         type: 2}
       propertyPath: reactions.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114241971261814468, guid: 594e7f14250fc4340aeef077acd16d96,
         type: 2}
@@ -4540,7 +4583,7 @@ Prefab:
         type: 2}
       propertyPath: reactions.Array.data[1]
       value: 
-      objectReference: {fileID: 1489614469}
+      objectReference: {fileID: 1144696717}
     - target: {fileID: 114241971261814468, guid: 594e7f14250fc4340aeef077acd16d96,
         type: 2}
       propertyPath: conditionCollections.Array.data[0]
