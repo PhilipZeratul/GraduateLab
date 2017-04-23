@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed = 0.12f;
+	public float speed = 1.2f;
     public const float inputHoldDelay = 0.5f;
     public bool interactionFinished = false;
 
@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 destinationPosition;
     private WaitForSeconds inputHoldWait;
 
-    private readonly int hashSpeedPara = Animator.StringToHash("Speed");   
-
+    private readonly int hashSpeedPara = Animator.StringToHash("Speed");
+    private readonly int hashLocomotionTag = Animator.StringToHash("Locomotion");
 
     private void Awake()
 	{
@@ -43,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
         if (!handleInput)
             return;
 
+        walkAnimator.SetFloat(hashSpeedPara, 2.0f);
+
+        if (walkAnimator.GetCurrentAnimatorStateInfo(0).tagHash != hashLocomotionTag)
+            return;
+
         isMouseClickedWalking = false;
         currentInteractable = null;
 
@@ -56,12 +61,17 @@ public class PlayerMovement : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
-        transform.Translate(h*speed, v*speed, 0.0f);
-		walkAnimator.SetFloat(hashSpeedPara, 2.0f);
+        transform.Translate(h*speed*Time.deltaTime, v*speed*Time.deltaTime, 0.0f);
+		
 	}
 
     private void MouseMove()
-    {      
+    {
+        walkAnimator.SetFloat(hashSpeedPara, 2.0f);
+
+        if (walkAnimator.GetCurrentAnimatorStateInfo(0).tagHash != hashLocomotionTag)
+            return;
+
         if (Vector2.Distance(transform.position, destinationPosition) < 0.1f)
         {
             isMouseClickedWalking = false;            
@@ -72,8 +82,7 @@ public class PlayerMovement : MonoBehaviour
         else if (destinationPosition.x < transform.position.x)
             transform.localRotation = Quaternion.Euler(0, 0, 0);
 
-        transform.position = Vector3.MoveTowards(transform.position, destinationPosition, speed);
-        walkAnimator.SetFloat(hashSpeedPara, 2.0f);
+        transform.position = Vector3.MoveTowards(transform.position, destinationPosition, speed*Time.deltaTime);        
     }
 
 	private void Stop()

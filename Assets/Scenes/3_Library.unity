@@ -1519,7 +1519,7 @@ Prefab:
     - target: {fileID: 114265294508927732, guid: 109613f817e5b5a48abd84268e39c6b2,
         type: 2}
       propertyPath: speed
-      value: 0.12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4855085898753820, guid: 109613f817e5b5a48abd84268e39c6b2, type: 2}
       propertyPath: m_LocalPosition.z
