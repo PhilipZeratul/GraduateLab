@@ -1,11 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
-public class ButtonClicked_3_Library : MonoBehaviour {
+public class ButtonClicked_3_Library : MonoBehaviour
+{
+    private SceneController sceneController;
 
-	public void OnBackButtonClicked()
+
+    private void Awake()
+    {
+        sceneController = FindObjectOfType<SceneController>();
+    }
+
+	public void SwitchScene(string sceneToLoad)
 	{
-		SceneManager.LoadSceneAsync("1_Title");
+        sceneController.FadeAndLoadScene(sceneToLoad);
 	}
 }

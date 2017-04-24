@@ -4,6 +4,8 @@
 [ExecuteInEditMode]
 public class IsometricObjectStatic : MonoBehaviour
 {
+    public float gizmoLength = 1.0f;
+
 	private const int IsometricRangePerYUnit = 1;
 
 	[Tooltip("Will use this object to compute z-order")]
@@ -26,5 +28,15 @@ public class IsometricObjectStatic : MonoBehaviour
             transform.position = new Vector3(prevPosition.x, prevPosition.y, zOrder);
         }
     }
-	#endif
+    #endif
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Vector3 pivotLineStart = new Vector3(transform.position.x - gizmoLength, transform.position.y, transform.position.z);
+        Vector3 pivotLineEnd = new Vector3(transform.position.x + gizmoLength, transform.position.y, transform.position.z);
+
+        Gizmos.DrawLine(pivotLineStart, pivotLineEnd);
+    }
 }

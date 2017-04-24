@@ -1525,6 +1525,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -1.9193833
       objectReference: {fileID: 0}
+    - target: {fileID: 114580090206991506, guid: 109613f817e5b5a48abd84268e39c6b2,
+        type: 2}
+      propertyPath: gizmoLength
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61980785954434054, guid: 109613f817e5b5a48abd84268e39c6b2, type: 2}
     - {fileID: 212801625404497816, guid: 109613f817e5b5a48abd84268e39c6b2, type: 2}
@@ -1861,14 +1866,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1890975151}
-        m_MethodName: OnBackButtonClicked
-        m_Mode: 1
+        m_MethodName: SwitchScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 674143036}
@@ -2841,6 +2846,11 @@ Prefab:
       propertyPath: reactions.Array.data[1]
       value: 
       objectReference: {fileID: 133332196}
+    - target: {fileID: 114663195343704988, guid: 594e7f14250fc4340aeef077acd16d96,
+        type: 2}
+      propertyPath: gizmoLength
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 594e7f14250fc4340aeef077acd16d96, type: 2}
   m_IsPrefabParent: 0
@@ -4669,6 +4679,11 @@ Prefab:
         type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnInteractableClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 114663195343704988, guid: 594e7f14250fc4340aeef077acd16d96,
+        type: 2}
+      propertyPath: gizmoLength
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

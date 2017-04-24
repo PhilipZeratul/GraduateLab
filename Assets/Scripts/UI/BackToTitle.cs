@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
-public class BackToTitle : MonoBehaviour {
+public class BackToTitle : MonoBehaviour
+{
+    public string sceneToReturn = "Title";
 
-	// Use this for initialization
-	void Start () {
-		SceneManager.LoadSceneAsync("1_Title");
+    private SceneController sceneController;
+
+
+    private void Awake()
+    {
+        sceneController = FindObjectOfType<SceneController>();
+    }
+
+	private void Start ()
+    {
+        sceneController.FadeAndLoadScene(sceneToReturn);	
 	}
 }
