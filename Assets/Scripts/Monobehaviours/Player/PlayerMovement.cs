@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         inputHoldWait = new WaitForSeconds(inputHoldDelay);
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		float h = Input.GetAxisRaw("Horizontal");
 		float v = Input.GetAxisRaw("Vertical");
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, destinationPosition, speed*Time.deltaTime);        
     }
 
-	private void Stop()
+	public void Stop()
 	{
         isMouseClickedWalking = false;
 		walkAnimator.SetFloat(hashSpeedPara, 0.0f);
@@ -110,9 +110,9 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         currentInteractable = null;
-
         PointerEventData pData = (PointerEventData)data;
         destinationPosition = pData.pointerCurrentRaycast.worldPosition;
+
         isMouseClickedWalking = true;
         walkAnimator.SetFloat(hashSpeedPara, 0.0f);
     }
@@ -127,6 +127,17 @@ public class PlayerMovement : MonoBehaviour
         destinationPosition = interactable.interactionLocation.position;
         isMouseClickedWalking = true;
         walkAnimator.SetFloat(hashSpeedPara, 0.0f);
+    }
+
+    public void OnMouseDraging(BaseEventData data)
+    {
+        PointerEventData pData = (PointerEventData)data;
+        // If mouse exit when dragging, data would be (0, 0, 0), stop walking.
+        if (pData.pointerCurrentRaycast.worldPosition == Vector3.zero)
+            return;
+        
+        destinationPosition = pData.pointerCurrentRaycast.worldPosition;        
+        isMouseClickedWalking = true;
     }
 
     private IEnumerator WaitForInteraction()
@@ -146,5 +157,5 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("interactionFinished");
         // Now input can be accepted again.
         handleInput = true;
-    }
+    }    
 }
