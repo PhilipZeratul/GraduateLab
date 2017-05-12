@@ -1,6 +1,15 @@
 /*
-
 !.gitignore
+
+
+# Unity3D related
 !/Assets
 /Assets/AssetStoreTools
 !/ProjectSettings
+*.unitypackage
+
+
+# Windows OS related
+.Trashes
+[Tt]humbs.db
+[Dd]esktop.ini
